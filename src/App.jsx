@@ -1,24 +1,18 @@
 import './App.css';
-import Logo from './componentes/Logo';
-import perfil from './imagens/perfil.svg';
-import sacola from './imagens/sacola.svg';
+import Header from './componentes/Header';
+import styled from 'styled-components';
 
-const textoOpcoes = ['CATEOGORIAS', 'FAVORITOS', 'MINHA ESTANTE']
-const icones = [perfil, sacola]
+const AppContainer = styled.div`
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(90deg, #002F52, #326589);
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Logo></Logo>
-        <ul className="opcoes">
-          { textoOpcoes.map((texto) => ( <li className="opcao"><p>{texto}</p></li> )) }
-        </ul>
-        <ul className="icones">
-          { icones.map((icone) => ( <li className="icone"><img src={icone}/></li> )) }
-        </ul>
-      </header>
-    </div>
+    <AppContainer>
+      <Header/>
+    </AppContainer>
   );
 }
 
