@@ -1,6 +1,7 @@
 import Input from '../Input';
 import styled from 'styled-components';
 import { useState } from 'react';
+import { livros } from './dadosPesquisa';
 
 const PesquisaContainer = styled.section`
   color: #FFF;
@@ -21,8 +22,39 @@ const Subtitulo = styled.h3`
   margin-bottom: 40px;
 `
 
+const ResultadosGrid = styled.div`
+  width: min(1000px, 92%);
+  margin: 24px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 16px;
+  justify-content: center;
+`
+
+const Resultado = styled.article`
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  justify-items: center;
+
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+    max-width: 110px;
+    height: 150px;
+    object-fit: contain;
+  }
+`
+
 function Pesquisa() {
-  const [textoDigitado, setTextoDigitado] = useState('');
+  const [livrosPesquisados, setLivrosPesquisados] = useState([]);
 
   return (
     <PesquisaContainer>
@@ -30,9 +62,20 @@ function Pesquisa() {
       <Subtitulo>Encontre seu livro em nossa estante.</Subtitulo>
       <Input 
         placeholder="Escreva sua próxima leitura"
-        onBlur={(event) => setTextoDigitado(event.target.value)}
+        onBlur={(event) => {
+          const textoDigitado = event.target.value;
+          const resultadoPesquisa = livros.filter( livro => livro.nome.toLowerCase().includes(textoDigitado.toLowerCase()));
+          setLivrosPesquisados(resultadoPesquisa);
+        }}
       />
-      <p>{textoDigitado}</p>
+      <ResultadosGrid>
+        { livrosPesquisados.map( livro => (
+          <Resultado>
+            <img src={livro.src}/>
+            <p>{livro.nome}</p>
+          </Resultado>
+        ) ) }
+      </ResultadosGrid>
     </PesquisaContainer>
   );
 }

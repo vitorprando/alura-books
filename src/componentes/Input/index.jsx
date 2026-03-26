@@ -11,7 +11,7 @@ const Input = styled.input`
   margin-bottom: 10px;
 
   &::placeholder {
-    color: #FFF;
+    color: #ffffff6f;
     font-size: 16px;
   }
 `
