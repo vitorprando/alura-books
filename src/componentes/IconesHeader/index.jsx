@@ -18,7 +18,7 @@ const Icone = styled.li`
 
 const icones = [perfil, sacola]
 
-function IconesHeader() {
+export default function IconesHeader() {
     return (
         <IconesContainer>
           { icones.map((icone) => ( 
@@ -27,5 +27,3 @@ function IconesHeader() {
         </IconesContainer>
     )
 }
-
-export default IconesHeader;

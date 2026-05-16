@@ -53,7 +53,7 @@ const Resultado = styled.article`
   }
 `
 
-function Pesquisa() {
+export default function Pesquisa() {
   const [livrosPesquisados, setLivrosPesquisados] = useState([]);
 
   return (
@@ -79,5 +79,3 @@ function Pesquisa() {
     </PesquisaContainer>
   );
 }
-
-export default Pesquisa;

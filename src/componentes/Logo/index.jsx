@@ -10,7 +10,7 @@ const LogoImg = styled.img`
     margin-right: 10px;
 `
 
-function Logo() {
+export default function Logo() {
     return (
         <LogoContainer>
             <LogoImg src={logo} alt="Logo da Alura Books"/>
@@ -18,5 +18,3 @@ function Logo() {
         </LogoContainer>
     )
 }
-
-export default Logo;

@@ -20,7 +20,7 @@ const Opcao = styled.li`
 
 const textoOpcoes = ['CATEOGORIAS', 'FAVORITOS', 'MINHA ESTANTE']
 
-function OpcoesHeader() {
+export default function OpcoesHeader() {
     return (
         <OpcoesContainer>
           { textoOpcoes.map((texto) => ( 
@@ -29,5 +29,3 @@ function OpcoesHeader() {
         </OpcoesContainer>
     )
 }
-
-export default OpcoesHeader;
