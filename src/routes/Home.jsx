@@ -9,14 +9,13 @@ const AppContainer = styled.div`
     background-image: linear-gradient(90deg, #002F52, #326589);
 `
 
-function App() {
+function Home() {
   return (
     <AppContainer>
-      <Header/>
       <Pesquisa/>
       <Destaques/>
     </AppContainer>
   );
 }
 
-export default App;
+export default Home;

@@ -1,8 +1,10 @@
-import App from './App.jsx'
+import Home from './routes/Home';
+import Favoritos from './routes/Favoritos';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from './componentes/Header/index.jsx'
 
 const GlobalStyle = createGlobalStyle`
    body {
@@ -28,9 +30,10 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GlobalStyle />
     <BrowserRouter>
+      <Header />
       <Routes>
-        <Route path="/favoritos" element={<p>Favoritos</p>} />
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/favoritos" element={<Favoritos />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
