@@ -1,7 +1,8 @@
 import { Input } from '../Input';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { livros } from './dadosPesquisa';
+import { useEffect } from 'react';
+import { getTodosLivros } from '../../services/livrosServicos';
 
 const PesquisaContainer = styled.section`
   color: #FFF;
@@ -55,6 +56,16 @@ const Resultado = styled.article`
 
 export default function Pesquisa() {
   const [livrosPesquisados, setLivrosPesquisados] = useState([]);
+  const [livros, setLivros] = useState([]);
+
+  async function fetchLivros() {
+    const livros = await getTodosLivros();
+    setLivros(livros);
+  }
+
+  useEffect(() => {
+    fetchLivros();
+  }, []);
 
   return (
     <PesquisaContainer>
@@ -64,7 +75,7 @@ export default function Pesquisa() {
         placeholder="Escreva sua próxima leitura"
         onBlur={(event) => {
           const textoDigitado = event.target.value;
-          const resultadoPesquisa = livros.filter( livro => livro.nome.toLowerCase().includes(textoDigitado.toLowerCase()));
+          const resultadoPesquisa = livros.filter( livro => livro.titulo.toLowerCase().includes(textoDigitado.toLowerCase()));
           setLivrosPesquisados(resultadoPesquisa);
         }}
       />
@@ -72,7 +83,7 @@ export default function Pesquisa() {
         { livrosPesquisados.map( livro => (
           <Resultado>
             <img src={livro.src}/>
-            <p>{livro.nome}</p>
+            <p>{livro.titulo}</p>
           </Resultado>
         ) ) }
       </ResultadosGrid>

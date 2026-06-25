@@ -1,7 +1,7 @@
 import { livros } from './dadosDestaques';
 import { Titulo } from '../Titulo';
 import CardRecomendacao from '../CardRecomendacao';
-import imagemLivro from '../../imagens/livro2.png';
+import imagemLivro from '../../images/livro2.png';
 import styled from 'styled-components';
 
 const DestaquesContainer = styled.section`
@@ -27,7 +27,7 @@ export default function Destaques() {
             </Titulo>
             <NovosLivrosContainer>
                 {livros.map((livro) => {
-                    return <img src = {livro.src} alt={livro.nome}/>;
+                    return <img src = {livro.src} alt={livro.titulo}/>;
                 })}
             </NovosLivrosContainer>
             <CardRecomendacao 

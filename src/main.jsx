@@ -4,7 +4,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Header from './componentes/Header/index.jsx'
+import Header from './components/Header/index.jsx'
 
 const GlobalStyle = createGlobalStyle`
    body {
